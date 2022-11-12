@@ -171,8 +171,8 @@ function update(){
     if( ball.x - ball.radius < 0 ){
         com.score++;
         if (com.score==20){
-            clearInterval(loop);
             alert("Ai wins!");
+            clearInterval(loop);
         }
         else{
         alert("Ai got a point!");
@@ -182,8 +182,8 @@ function update(){
     else if( ball.x + ball.radius > canvas.width){
         user.score++;
         if (user.score ==20){
-            clearInterval(loop);
             alert("User wins!");
+            clearInterval(loop);
         }
         else{
             alert("User got a point!");
