@@ -30,7 +30,7 @@ const ball = {
     velocityX : 5,
     velocityY : 5,
     speed : 7,
-    color : "WHITE"
+    color : "ORANGE"
 }
 
 // User Paddle
@@ -71,6 +71,8 @@ function drawRect(x, y, w, h, color){
 // draw circle, will be used to draw the ball
 function drawArc(x, y, r, color){
     ctx.fillStyle = color;
+    ctx.shadowColor = "black";
+    ctx.shadowBlur = 18;
     ctx.beginPath();
     ctx.arc(x,y,r,0,Math.PI*2,true);
     ctx.closePath();
