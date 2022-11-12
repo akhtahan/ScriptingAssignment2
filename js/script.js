@@ -102,10 +102,17 @@ function drawNet(){
     }
 }
 
-// draw text
-function drawText(text,x,y){
-    ctx.fillStyle = "#FFF";
-    ctx.font = "75px fantasy";
+// draws player scores
+function drawScore(text,x,y, colour){
+    ctx.fillStyle = colour;
+    ctx.font = "75px monospace";
+    ctx.fillText(text, x, y);
+}
+
+//draws player labels (text saying 'User' and 'Ai')
+function drawLabel(text, x, y, colour ){
+    ctx.fillStyle = colour;
+    ctx.font = "20px monospace";
     ctx.fillText(text, x, y);
 }
 
@@ -182,11 +189,17 @@ function render(){
     drawRect(0, 0, canvas.width, canvas.height, "#FF6961");
     drawRect(canvas.width/2, 0, canvas.width/2, canvas.height, "#AEC6CF");
     
-    // draw the user score to the left
-    drawText(user.score,canvas.width/4,canvas.height/5);
+    // draw the user score 
+    drawScore(user.score,canvas.width/4.5,canvas.height/5, "WHITE");
+
+    //draw user label 
+    drawLabel("User", canvas.width/4.5, canvas.height/4, "WHITE");
     
-    // draw the ai score to the right
-    drawText(com.score,3*canvas.width/4,canvas.height/5);
+    // draw the ai score 
+    drawScore(com.score,3.3*canvas.width/4.5,canvas.height/5, "BLACK");
+
+    // draw ai label 
+    drawLabel("Ai", 3.35*canvas.width/4.5, canvas.height/4, "BLACK");
     
     // draw the net
     drawNet();
