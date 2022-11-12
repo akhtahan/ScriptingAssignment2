@@ -70,6 +70,7 @@ const net = {
 function drawRect(x, y, w, h, color){
     ctx.fillStyle = color;
     ctx.fillRect(x, y, w, h);
+    ctx.shadowColor="transparent";
 }
 
 function drawPaddle (x, y, w, h, color, borderCol, lineW){
