@@ -9,6 +9,19 @@ window.setTimeout(function(){
     alert("\nHow to Play:\n\nYou are 'User'. Move your cursor up/down to move your paddle up/down.");
 }, 500); 
 
+//size canvas to fit whole browser window
+canvas.width  = window.innerWidth;
+canvas.height = window.innerHeight;
+
+//function to resize windows
+function windowResize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  };
+
+  //event handler for when window is resized
+  window.addEventListener('resize', windowResize);
+
 // Ball object
 const ball = {
     x : canvas.width/2,
