@@ -55,11 +55,11 @@ const com = {
 
 // Net
 const net = {
-    x : (canvas.width - 2)/2,
+    x : (canvas.width-9)/2,
     y : 0,
-    height : 10,
-    width : 2,
-    color : "WHITE"
+    height : 8,
+    width : 9,
+    color : "#FEDE00"
 }
 
 // draw a rectangle, will be used to draw game board
@@ -99,7 +99,8 @@ function resetBall(){
 
 // draw the net
 function drawNet(){
-    for(let i = 0; i <= canvas.height; i+=15){
+    
+    for(let i = 0; i <= canvas.height; i+=19){
         drawRect(net.x, net.y + i, net.width, net.height, net.color);
     }
 }
