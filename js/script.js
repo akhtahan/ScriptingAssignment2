@@ -178,8 +178,9 @@ function update(){
 // render function, the function that does all the drawing
 function render(){
     
-    // clear the canvas
-    drawRect(0, 0, canvas.width, canvas.height, "#000");
+    // clear the canvas, draw the game board 
+    drawRect(0, 0, canvas.width, canvas.height, "#FF6961");
+    drawRect(canvas.width/2, 0, canvas.width/2, canvas.height, "#AEC6CF");
     
     // draw the user score to the left
     drawText(user.score,canvas.width/4,canvas.height/5);
