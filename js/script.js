@@ -169,10 +169,25 @@ function update(){
     // change the score of players, if the ball goes to the left "ball.x<0" computer win, else if "ball.x > canvas.width" the user win
     if( ball.x - ball.radius < 0 ){
         com.score++;
-        resetBall();
-    }else if( ball.x + ball.radius > canvas.width){
+        if (com.score==20){
+            clearInterval(loop);
+            alert("Ai wins!");
+        }
+        else{
+        alert("Ai got a point!");
+        resetBall();    
+        }
+    }
+    else if( ball.x + ball.radius > canvas.width){
         user.score++;
-        resetBall();
+        if (user.score ==20){
+            clearInterval(loop);
+            alert("User wins!");
+        }
+        else{
+            alert("User got a point!");
+            resetBall();
+        }
     }
     
     // the ball has a velocity
