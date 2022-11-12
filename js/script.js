@@ -40,7 +40,9 @@ const user = {
     width : 10,
     height : 100,
     score : 0,
-    color : "WHITE"
+    color : "transparent",
+    strokeCol: "WHITE",
+    lineW: 5
 }
 
 // Ai Paddle
@@ -50,7 +52,9 @@ const com = {
     width : 10,
     height : 100,
     score : 0,
-    color : "WHITE"
+    color: "transparent",
+    strokeCol: "BLACK",
+    lineW: 5
 }
 
 // Net
@@ -66,6 +70,31 @@ const net = {
 function drawRect(x, y, w, h, color){
     ctx.fillStyle = color;
     ctx.fillRect(x, y, w, h);
+}
+
+function drawPaddle (x, y, w, h, color, borderCol, lineW){
+    var rect = [x, y, w, h],
+    cr = 5;   
+    var pi = Math.PI,       
+    x1 = rect[0],       
+    y1 = rect[1],
+    x2 = rect[2] + x1,
+    y2 = rect[3] + y1;
+
+// create a rounded rectangle path
+ctx.beginPath();
+
+ctx.arc(x1 + cr, y1 + cr, cr, pi, 1.5 * pi);  // upper left corner
+ctx.arc(x2 - cr, y1 + cr, cr, 1.5 * pi, 0);   // upper right corner
+ctx.arc(x2 - cr, y2 - cr, cr, 0, 0.5 * pi);   // lower right corner
+ctx.arc(x1 + cr, y2 - cr, cr, 0.5 * pi, pi);  // lower left corner
+
+ctx.closePath();
+ctx.fillStyle = color;
+ctx.fill();                            
+ctx.strokeStyle = borderCol;
+ctx.lineWidth = lineW;
+ctx.stroke();
 }
 
 // draw circle, will be used to draw the ball
@@ -208,10 +237,10 @@ function render(){
     drawNet();
     
     // draw the user's paddle
-    drawRect(user.x, user.y, user.width, user.height, user.color);
+    drawPaddle(user.x, user.y, user.width, user.height, user.color, user.strokeCol, user.lineW);
     
-    // draw the ai's paddle
-    drawRect(com.x, com.y, com.width, com.height, com.color);
+    //draw ai's paddle
+    drawPaddle(com.x, com.y, com.width, com.height, com.color, com.strokeCol, com.lineW);
     
     // draw the ball
     drawArc(ball.x, ball.y, ball.radius, ball.color);
