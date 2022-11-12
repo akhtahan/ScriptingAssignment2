@@ -4,6 +4,11 @@ const canvas = document.getElementById("pong");
 // getContext of canvas = methods and properties to draw and do a lot of thing to the canvas
 const ctx = canvas.getContext('2d');
 
+//alert to display game instructions
+window.setTimeout(function(){
+    alert("\nHow to Play:\n\nYou are 'User'. Move your cursor up/down to move your paddle up/down.");
+}, 500); 
+
 // Ball object
 const ball = {
     x : canvas.width/2,
